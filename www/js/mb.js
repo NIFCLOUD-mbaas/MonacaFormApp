@@ -9,11 +9,11 @@ var ncmb = new NCMB(applicationKey, clientKey);
 
 mb = {
     /***** demo1：保存 *****/
-    saveData: function(data) { 
+    saveData: function(data) {
         // 保存先クラスの作成
-        var Inquiry = ncmb.DataStore('Inquiry'); 
+        var Inquiry = ncmb.DataStore('Inquiry');
         // インスタンスの生成
-        var inquiry = new Inquiry();  
+        var inquiry = new Inquiry();
         // データの設定と保存
         inquiry.set('name', data[0])
                 .set('emailAddress', data[1])
@@ -29,12 +29,12 @@ mb = {
                 })
                 .catch(function(error){
                     //保存失敗
-                    ons.notification.alert('問い合わせの受付に失敗したしました');
+                    ons.notification.alert('問い合わせの受付に失敗しました');
                     console.log('保存失敗：' + error);
                 });
     },
     /***** demo2：全件検索 *****/
-    getAllData: function() {        
+    getAllData: function() {
         // インスタンスの生成
         var inquiry = ncmb.DataStore('Inquiry');
         // データを全件検索取得
@@ -74,7 +74,7 @@ mb = {
     getRangeSearchData: function(feild, inputDataGreaterThan, inputDataLessThan) {
         // インスタンスの生成
         var inquiry = ncmb.DataStore('Inquiry');
-        // データのの条件検索取得（範囲指定） 
+        // データのの条件検索取得（範囲指定）
         inquiry.order('createDate',true) // 保存日時降順
                .greaterThanOrEqualTo(feild, inputDataGreaterThan)
                .lessThan(feild, inputDataLessThan)
